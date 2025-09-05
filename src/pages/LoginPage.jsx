@@ -1,3 +1,34 @@
+/**
+ * Página de inicio de sesión del sistema de eventos
+ * 
+ * @component
+ * @category Pages
+ * @subcategory Authentication
+ * 
+ * @description
+ * Componente que renderiza el formulario de autenticación de usuarios.
+ * Permite a los usuarios ingresar con email y contraseña, redirigiendo
+ * a la página de eventos upon successful authentication.
+ * 
+ * @features
+ * - Formulario de login con validación de campos
+ * - Manejo de errores de autenticación
+ * - Redirección automática tras login exitoso
+ * - Enlace a página de registro
+ * - Integración con contexto de autenticación
+ * 
+ * @requires
+ * - AuthContext para gestión de estado de autenticación
+ * - React Router para navegación
+ * 
+ * @example
+ * // Se renderiza en la ruta '/login'
+ * <LoginPage />
+ * 
+ * @see {@link AuthContext} Para información sobre el sistema de autenticación
+ * @see {@link RegisterPage} Para el componente de registro
+ * @see {@link http://localhost:8000/docs/} Documentación de FastAPI para el proyecto backend
+ */
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";

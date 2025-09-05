@@ -1,3 +1,33 @@
+/**
+ * Página de registro de nuevos usuarios en el sistema de eventos
+ * 
+ * @component
+ * @category Pages
+ * @subcategory Authentication
+ * 
+ * @description
+ * Componente que renderiza el formulario de registro de usuarios.
+ * Permite a los nuevos usuarios crear una cuenta con sus datos personales
+ * y credenciales de acceso. Tras registro exitoso, redirige al login.
+ * 
+ * @features
+ * - Formulario de registro con validación de campos
+ * - Manejo de errores específicos por campo desde el backend
+ * - Mensajes de éxito y retroalimentación visual
+ * - Redirección automática tras registro exitoso
+ * - Integración con contexto de autenticación
+ * 
+ * @requires
+ * - AuthContext para gestión del proceso de registro
+ * - React Router para navegación
+ * 
+ * @example
+ * // Se renderiza en la ruta '/register'
+ * <RegisterPage />
+ * 
+ * @see {@link AuthContext} Para información sobre el sistema de autenticación
+ * @see {@link LoginPage} Para el componente de inicio de sesión
+ */
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";

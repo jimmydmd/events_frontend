@@ -1,3 +1,34 @@
+/**
+ * Página principal de gestión de eventos del sistema
+ * 
+ * @component
+ * @category Pages
+ * 
+ * @description
+ * Componente que muestra una lista de eventos, permite buscar, filtrar,
+ * crear, editar y eliminar eventos y sesiones. También gestiona registros
+ * de usuarios a eventos según su rol.
+ * 
+ * @features
+ * - Búsqueda de eventos con debounce
+ * - Paginación de resultados
+ * - CRUD completo de eventos (según permisos)
+ * - Gestión de sesiones dentro de eventos
+ * - Registro de participantes a eventos
+ * - Vista de "Mis registros" para participantes
+ * 
+ * @requires
+ * - Usuario autenticado con token válido
+ * 
+ * @param {Object} props - No recibe props directos, usa contexto de autenticación
+ * 
+ * @example
+ * // Se renderiza automáticamente al navegar a la ruta correspondiente
+ * <EventsPage />
+ * 
+ * @see {@link AuthContext} Para información sobre el contexto de autenticación
+ * @see {@link http://localhost:8000/docs/} Documentación de FastAPI para el proyecto backend
+ */
 import { useEffect, useState, useContext, useCallback } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";

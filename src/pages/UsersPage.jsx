@@ -1,3 +1,40 @@
+/**
+ * Página de administración de usuarios del sistema de eventos
+ * 
+ * @component
+ * @category Pages
+ * @subcategory Administration
+ * 
+ * @description
+ * Componente que permite la gestión completa de usuarios del sistema.
+ * Solo accesible para usuarios con rol de administrador. Incluye
+ * funcionalidades de listar, crear, editar y eliminar usuarios,
+ * así como la asignación de roles.
+ * 
+ * @features
+ * - Listado de usuarios con información detallada
+ * - Creación de nuevos usuarios con formulario modal
+ * - Edición de usuarios existentes
+ * - Eliminación de usuarios con confirmación
+ * - Gestión de roles de usuario
+ * - Integración con API de FastAPI
+ * - Manejo de errores y estados de carga
+ * 
+ * @requires
+ * - AuthContext para validación de token de autenticación
+ * - Usuario con rol de administrador
+ * - Backend FastAPI con endpoints de usuarios y roles
+ * 
+ * @permissions
+ * - Solo usuarios con rol 'Admin' pueden acceder a esta página
+ * 
+ * @example
+ * // Se renderiza en la ruta '/users' para administradores
+ * <UsersPage />
+ * 
+ * @see {@link AuthContext} Para información sobre autenticación
+ * @see {@link EventsPage} Para la gestión de eventos
+ */
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";

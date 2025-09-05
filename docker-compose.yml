@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: events_app_frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - events_network
+    environment:
+      REACT_APP_API_URL: ${REACT_APP_API_BASE_URL}
+
+networks:
+  events_network:
+    external: true

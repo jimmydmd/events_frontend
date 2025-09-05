@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
   // Login
   const login = async (email, password) => {
     try {
-      const res = await axios.post("http://localhost:8000/auth/login", { email, password });
+      const res = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/auth/login`, { email, password });
       const newToken = res.data.access_token;
       
       const userData = getUserFromToken(newToken);
@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }) => {
   // Registro
   const register = async (userData) => {
     try {
-      const res = await axios.post("http://localhost:8000/auth/register", userData);
+      const res = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/auth/register`, userData);
       return res.data;
     } catch (err) {
       throw err;

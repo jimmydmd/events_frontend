@@ -67,7 +67,7 @@ export default function EventsPage() {
     if (!token) return;
     setLoading(true);
     try {
-      const res = await axios.get("http://localhost:8000/events/", {
+      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/events/`, {
         headers: { Authorization: `Bearer ${token}` },
         params: { term: debouncedTerm, limit, offset },
       });
@@ -91,7 +91,7 @@ export default function EventsPage() {
     setRegistrationLoading(true);
     try {
       const res = await axios.get(
-        "http://localhost:8000/registrations/my_registrations",
+        `${process.env.REACT_APP_API_BASE_URL}/registrations/my_registrations`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -133,7 +133,7 @@ export default function EventsPage() {
   const handleCreateEvent = async () => {
     try {
       await axios.post(
-        "http://localhost:8000/events/",
+        `${process.env.REACT_APP_API_BASE_URL}/events/`,
         { ...newEvent },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -157,7 +157,7 @@ export default function EventsPage() {
   const handleUpdateEvent = async (id, data) => {
     try {
       await axios.patch(
-        `http://localhost:8000/events/${id}`,
+        `${process.env.REACT_APP_API_BASE_URL}/events/${id}`,
         { ...data },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -174,7 +174,7 @@ export default function EventsPage() {
     if (!window.confirm("¿Cancelar este evento?")) return;
     try {
       await axios.patch(
-        `http://localhost:8000/events/${id}/cancel`,
+        `${process.env.REACT_APP_API_BASE_URL}/events/${id}/cancel`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -189,7 +189,7 @@ export default function EventsPage() {
   const handleDeleteEvent = async (id) => {
     if (!window.confirm("¿Eliminar este evento?")) return;
     try {
-      await axios.delete(`http://localhost:8000/events/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/events/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchEvents();
@@ -203,7 +203,7 @@ export default function EventsPage() {
   const handleCreateSession = async () => {
     try {
       await axios.post(
-        "http://localhost:8000/events/sessions/",
+        `${process.env.REACT_APP_API_BASE_URL}/events/sessions/`,
         { ...newSession, event_id: selectedEventForSession.id },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -229,7 +229,7 @@ export default function EventsPage() {
   const handleDeleteSession = async (id) => {
     if (!window.confirm("¿Eliminar esta sesión?")) return;
     try {
-      await axios.delete(`http://localhost:8000/events/sessions/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/events/sessions/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchEvents();
@@ -243,7 +243,7 @@ export default function EventsPage() {
   const handleUpdateSession = async (id, data) => {
     try {
       await axios.patch(
-        `http://localhost:8000/events/sessions/${id}`,
+        `${process.env.REACT_APP_API_BASE_URL}/events/sessions/${id}`,
         { ...data },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -260,7 +260,7 @@ export default function EventsPage() {
     if (!window.confirm("¿Deseas registrarte a este evento?")) return;
     try {
       await axios.post(
-        "http://localhost:8000/registrations/",
+        `${process.env.REACT_APP_API_BASE_URL}/registrations/`,
         { event_id: eventId },
         { headers: { Authorization: `Bearer ${token}` } }
       );

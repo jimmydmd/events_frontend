@@ -25,7 +25,7 @@ export default function UsersPage() {
       if (!token) return;
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:8000/users/", {
+        const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/users/`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUsers(res.data);
@@ -40,7 +40,7 @@ export default function UsersPage() {
 
     const fetchRoles = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/roles/", {
+        const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/roles/`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setRoles(res.data);
@@ -63,7 +63,7 @@ export default function UsersPage() {
 
   const handleCreateUser = async () => {
     try {
-      await axios.post("http://localhost:8000/users/", newUser, {
+      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/users/`, newUser, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setShowCreateModal(false);
@@ -79,7 +79,7 @@ export default function UsersPage() {
       if (token) {
         setLoading(true);
         try {
-          const res = await axios.get("http://localhost:8000/users/", {
+          const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/users/`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           setUsers(res.data);
@@ -99,7 +99,7 @@ export default function UsersPage() {
 
   const handleUpdateUser = async (id, data) => {
     try {
-      await axios.patch(`http://localhost:8000/users/${id}`, data, {
+      await axios.patch(`${process.env.REACT_APP_API_BASE_URL}/users/${id}`, data, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setEditingUser(null);
@@ -108,7 +108,7 @@ export default function UsersPage() {
       if (token) {
         setLoading(true);
         try {
-          const res = await axios.get("http://localhost:8000/users/", {
+          const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/users/`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           setUsers(res.data);
@@ -129,14 +129,14 @@ export default function UsersPage() {
   const handleDeleteUser = async (id) => {
     if (!window.confirm("¿Estás seguro de eliminar este usuario?")) return;
     try {
-      await axios.delete(`http://localhost:8000/users/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/users/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
       if (token) {
         setLoading(true);
         try {
-          const res = await axios.get("http://localhost:8000/users/", {
+          const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/users/`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           setUsers(res.data);

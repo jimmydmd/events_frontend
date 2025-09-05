@@ -202,6 +202,15 @@ export default function UsersPage() {
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <div className="flex justify-between items-center mb-6">
+          <button
+            onClick={() => window.location.href = '/'}
+            className="mr-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+          >
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            Volver
+          </button>
         <h1 className="text-3xl font-bold">Gestión de Usuarios</h1>
         <button
           onClick={() => setShowCreateModal(true)}

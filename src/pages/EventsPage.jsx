@@ -33,19 +33,7 @@ import { useEffect, useState, useContext, useCallback } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
-
-// Debounce for search input
-function useDebounce(value, delay) {
-  const [debouncedValue, setDebouncedValue] = useState(value);
-
-  useEffect(() => {
-    const handler = setTimeout(() => setDebouncedValue(value), delay);
-    return () => clearTimeout(handler);
-  }, [value, delay]);
-
-  return debouncedValue;
-}
-
+import { useDebounce } from '../hooks/useDebounce';
 
 export default function EventsPage() {
   const { token, logout, user } = useContext(AuthContext);
